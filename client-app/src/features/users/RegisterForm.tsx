@@ -10,12 +10,12 @@ import ValidationError from "../errors/ValidationError";
 export default observer (function RegisterForm(){
     const {userStore} = useStore();
     return(
-        <Formik initialValues={{displayName: '', username: '', email: '', password: '', error: null}}
+        <Formik initialValues={{displayName: '', userName: '', email: '', password: '', error: null}}
                 onSubmit={(values, {setErrors}) => userStore.login(values).catch(error => 
                     setErrors({error}))}
         validationSchema={Yup.object({
             displayName: Yup.string().required(),
-            username: Yup.string().required(),
+            userName: Yup.string().required(),
             email: Yup.string().required(),
             password: Yup.string().required(),
         })}
